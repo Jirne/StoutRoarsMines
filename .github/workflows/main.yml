@@ -34,3 +34,5 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Unity - Builder
+        uses: game-ci/unity-builder@v2.0-alpha-10
