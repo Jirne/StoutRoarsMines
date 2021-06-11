@@ -3,7 +3,10 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
+	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
+	[SerializeField] private float m_LadderLength = 20f;
+	[SerializeField] private LayerMask ladderLayer;
+	[SerializeField] private float m_ClimbingSpeed = 1f;
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
@@ -14,10 +17,12 @@ public class CharacterController2D : MonoBehaviour
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
+	private bool m_Climbing = false;
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
+	private Animator animator;
 
 	[Header("Events")]
 	[Space]
@@ -33,6 +38,7 @@ public class CharacterController2D : MonoBehaviour
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		animator = GetComponent<Animator>();
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -45,7 +51,6 @@ public class CharacterController2D : MonoBehaviour
 	{
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
-
 		// The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
@@ -58,6 +63,24 @@ public class CharacterController2D : MonoBehaviour
 					OnLandEvent.Invoke();
 			}
 		}
+
+
+		RaycastHit2D hitInfo = Physics2D.Raycast(m_GroundCheck.position, Vector2.up, m_LadderLength, ladderLayer);
+		if(hitInfo.collider != null && Input.GetAxisRaw("Vertical") != 0) {
+			m_Climbing = true;
+			animator.SetBool("IsClimbing", true);
+        }
+        else {
+			m_Climbing = false;
+			animator.SetBool("IsClimbing", false);
+			m_Rigidbody2D.gravityScale = 3;
+		}
+
+        if (m_Climbing) {
+			Vector3 targetVelocity = new Vector2(0, Input.GetAxisRaw("Vertical") * m_ClimbingSpeed);
+			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
+			m_Rigidbody2D.gravityScale = 0;
+        }
 	}
 
 
@@ -74,8 +97,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 
 		//only control the player if grounded or airControl is turned on
-		if (m_Grounded || m_AirControl)
-		{
+		if (m_Grounded || m_AirControl) {
 
 			// If crouching
 			if (crouch)
@@ -109,7 +131,7 @@ public class CharacterController2D : MonoBehaviour
 			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 			// And then smoothing it out and applying it to the character
 			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
-
+			animator.SetFloat("YVelocity", m_Rigidbody2D.velocity.y);
 			// If the input is moving the player right and the player is facing left...
 			if (move > 0 && !m_FacingRight)
 			{
