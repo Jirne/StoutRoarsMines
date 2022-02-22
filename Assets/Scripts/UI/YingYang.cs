@@ -16,7 +16,7 @@ public class YingYang : MonoBehaviour
     // Start is called before the first frame update
     void Awake() {
         prt = GetComponent<RectTransform>();
-        //On crée la texture noire
+        //On crï¿½e la texture noire
         Texture2D blacktexture = new Texture2D(128, 128);
         for (int y = 0; y < blacktexture.height; y++) {
             for (int x = 0; x < blacktexture.width; x++) {

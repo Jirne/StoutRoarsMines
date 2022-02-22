@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     // Start is called before the first frame update
-    private const int BASE_HEALTH = 10;
+    private const int MAX_HEALTH = 20;
+    public int currentMaxHealth;
     public int health;
-    public Component HealthBar;
-    public YingYang uiData;
-    void Start()
-    {
-        
+    public HeadHealth uiData;
+
+    void Awake(){
+        UpdateHealth();
     }
 
     // Update is called once per frame
@@ -21,22 +21,30 @@ public class PlayerHealth : MonoBehaviour
         if (Input.GetButton("Heal")) {
             Heal(1);
         }
-        HealthBar.GetComponent<Slider>().SetValueWithoutNotify((float)health / (float)BASE_HEALTH);
-        uiData.playerHealth = health;
-        uiData.playerMaxHealth = BASE_HEALTH;
     }
 
     public void TakeDamage (int dmg) {
         health -= dmg;
-        Update();
+        if(health <= 0){
+            //die
+        }
+        else{
+            UpdateHealth();
+            //Trigger invul state
+            
+        }
     }
 
     public void Heal(int dmg) {
-        if(health < BASE_HEALTH && Player.Instance.Inventory.Potion > 0) {
+        if(health < currentMaxHealth && Player.Instance.Inventory.Potion > 0) {
             Debug.Log("Heal !");
             health += dmg;
             Player.Instance.Inventory.DeleteItem(new Item { itemType = Item.ItemType.HealthPotion });
-            Update();
+            UpdateHealth();
         }
+    }
+
+    void UpdateHealth(){
+        uiData.UpdateHealth(health, currentMaxHealth, MAX_HEALTH);
     }
 }

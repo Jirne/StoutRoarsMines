@@ -672,8 +672,8 @@ Transform:
   - {fileID: 2939797388822320334}
   - {fileID: 3508030187498146787}
   - {fileID: 5839540967846949956}
-  - {fileID: 8980082495146711519}
   - {fileID: 1165462823809405982}
+  - {fileID: 8980082495146711519}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -686,7 +686,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1366378404521232784, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1366378404521232784, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -731,6 +731,14 @@ PrefabInstance:
     - target: {fileID: 1737705151092421083, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
       propertyPath: m_Name
       value: Platform_Med (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397513725731361589, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712832750118038715, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
@@ -921,6 +929,14 @@ PrefabInstance:
     - target: {fileID: 2551507276311148059, guid: 13444a8f1a74496438de1bf59693518b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306115391614062208, guid: 13444a8f1a74496438de1bf59693518b, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306115391614062208, guid: 13444a8f1a74496438de1bf59693518b, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3858935470144497914, guid: 13444a8f1a74496438de1bf59693518b, type: 3}
       propertyPath: m_Name
@@ -1115,6 +1131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform_Little
       objectReference: {fileID: 0}
+    - target: {fileID: 5968283828133966294, guid: 13444a8f1a74496438de1bf59693518b, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13444a8f1a74496438de1bf59693518b, type: 3}
 --- !u!1001 &7956154752598577231
@@ -1126,7 +1146,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1366378404521232784, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1366378404521232784, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1171,6 +1191,14 @@ PrefabInstance:
     - target: {fileID: 1737705151092421083, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
       propertyPath: m_Name
       value: Platform_Med
+      objectReference: {fileID: 0}
+    - target: {fileID: 2497088046909061722, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8712832750118038715, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c52eb7efd5ab0004198b076b1c80b0e8, type: 3}
