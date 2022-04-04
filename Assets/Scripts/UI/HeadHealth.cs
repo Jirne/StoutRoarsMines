@@ -15,20 +15,22 @@ public class HeadHealth : MonoBehaviour
     Texture2D blackTexture;
     Texture2D whiteTexture;
     void Awake(){
-        blackTexture = new Texture2D(128, 128);
-        for (int y = 0; y < blackTexture.height; y++) {
-            for (int x = 0; x < blackTexture.width; x++) {
-                Color color = Color.black;
-                blackTexture.SetPixel(x, y, color);
-            }
-        }
-        Debug.Log("coucou");
     }
 
     public void UpdateHealth(int playerHealth, int playerMaxHealth, int maxHealth)
     {
         slider.maxValue = maxHealth;
         slider.value = playerMaxHealth;
+
+        if(blackTexture == null){
+            blackTexture = new Texture2D(128, 128);
+            for (int y = 0; y < blackTexture.height; y++) {
+                for (int x = 0; x < blackTexture.width; x++) {
+                    Color color = Color.black;
+                    blackTexture.SetPixel(x, y, color);
+                }
+            }
+        }
 
         //On delete les anciennes vies        
         for(int i = 0; i < gameObject.transform.childCount; i++){
