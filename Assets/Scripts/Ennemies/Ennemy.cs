@@ -8,6 +8,7 @@ public class Ennemy : MonoBehaviour
     // Start is called before the first frame update
     protected Rigidbody2D m_Rigidbody2D;
     public int moveSpeed;
+    public int life;
 
     protected Vector2 direction = new Vector2(-1,1);
     protected Vector3 m_Velocity = Vector3.zero;
@@ -29,7 +30,9 @@ public class Ennemy : MonoBehaviour
     }
 
     public void TakeDamage(int dmg) {
-        Destroy(gameObject);
+        life -= dmg;
+        if(life <= 0)
+            Destroy(gameObject);
     }
 
     protected void Reset(float patrolSize) {
@@ -46,7 +49,6 @@ public class Ennemy : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-
         if (collision.transform.CompareTag("Player")) {
             PlayerHealth p = collision.GetComponent<PlayerHealth>();
             p.TakeDamage(1);
