@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 1075387326}
   - component: {fileID: 1075387323}
   - component: {fileID: 2707923363116018124}
+  - component: {fileID: 4445422413652811215}
   m_Layer: 3
   m_Name: pf_Rat
   m_TagString: Untagged
@@ -350,6 +351,25 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!95 &4445422413652811215
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635704192176281670}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 461ea8ade13061c4b91ba6574da67159, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3677818320230225201
 GameObject:
   m_ObjectHideFlags: 0
