@@ -9,12 +9,15 @@ public class Ennemy : MonoBehaviour
     protected Rigidbody2D m_Rigidbody2D;
     public int moveSpeed;
 
-    protected Vector2Int direction = new Vector2Int(-1,1);
+    protected Vector2 direction = new Vector2(-1,1);
     protected Vector3 m_Velocity = Vector3.zero;
     protected float left;
     protected float right;
     public LayerMask playerMask;
     protected State action;
+
+
+    
 
     protected enum State {
         Tracking,

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Rat : Ennemy
 {
     // Update is called once per frame
+    
     void Update()
     {
         
@@ -27,32 +28,27 @@ public class Rat : Ennemy
         switch (action) {
             case State.Patrol:
                 if (gameObject.transform.position.x <= left) {
-                    direction.x = 1;
-                    gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                    direction.x = gameObject.transform.localScale.y;
 
                 }
                 else if (gameObject.transform.position.x >= right) {
-                    direction.x = -1;
-                    gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                    direction.x = -gameObject.transform.localScale.y;
                 }
                 break;
 
             case State.Tracking:
                 if(Player.Instance.transform.position.x - gameObject.transform.position.x > 0) {
-                    direction.x = 1;
-                    gameObject.GetComponent<SpriteRenderer>().flipX = false;
+                    direction.x = gameObject.transform.localScale.y;
                 }
                 else {
-                    direction.x = -1;
-                    gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                    direction.x = -gameObject.transform.localScale.y;
                 }
                 break;
         }
 
-
+        gameObject.transform.localScale = new Vector3 (direction.x,gameObject.transform.localScale.y,0);
         Vector3 targetVelocity = new Vector2(moveSpeed * direction.x, m_Rigidbody2D.velocity.y);
         m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, 0.05f);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

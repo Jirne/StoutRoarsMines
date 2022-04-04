@@ -176,6 +176,10 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 128
+  m_GroundCheck: {fileID: 0}
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 31
 --- !u!70 &3451361384763438614
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
