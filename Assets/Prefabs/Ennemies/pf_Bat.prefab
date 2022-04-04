@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7380477171450551931}
   - component: {fileID: 3709284789969805585}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: -8045894130823096038}
   - component: {fileID: 3451361384763438614}
   - component: {fileID: 2178818404143860297}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pf_Bat
-  m_TagString: Untagged
+  m_TagString: Ennemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,13 +173,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  life: 1
   playerMask:
     serializedVersion: 2
     m_Bits: 128
-  m_GroundCheck: {fileID: 0}
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 31
 --- !u!70 &3451361384763438614
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -222,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5720487188481717389}
   - component: {fileID: 5720487188481717386}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WingL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5720487188781440939}
   - component: {fileID: 5720487188781440936}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WingR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5720487189317568239}
   - component: {fileID: 5720487189317568238}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
