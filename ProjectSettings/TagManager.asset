@@ -8,6 +8,8 @@ TagManager:
   - RoomSpawn
   - ForbidSpawn
   - FakeSpawn
+  - Player_Weapon
+  - Ennemies
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - UI
   - Ladder
   - Player
-  - 
+  - Player_Weapon
   - 
   - 
   - 
