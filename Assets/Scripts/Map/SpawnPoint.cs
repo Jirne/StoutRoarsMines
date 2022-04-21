@@ -39,9 +39,7 @@ public class SpawnPoint : MonoBehaviour
                 }
             }
 
-            Instantiate(pool[UnityEngine.Random.Range(0, pool.Count)], transform.position, Quaternion.identity);
-            spawned = true;
-            RoomTemplate.Instance.RoomGenerated++;
+            SpawnRoom();
         }
         
     }
@@ -91,10 +89,16 @@ public class SpawnPoint : MonoBehaviour
             //Debug.Log(pool[i].name);
         }
 
-        Instantiate(pool[UnityEngine.Random.Range(0, pool.Count)], transform.position, Quaternion.identity);
+        SpawnRoom();
+    }
+
+    private void SpawnRoom(){
+        var newRoom = Instantiate(pool[UnityEngine.Random.Range(0, pool.Count)], transform.position, Quaternion.identity);
+        newRoom.transform.parent = GameObject.Find("FullMap").transform;
         spawned = true;
         RoomTemplate.Instance.RoomGenerated++;
     }
+
 
     private List<GameObject> ParsePool(int direction) {
         List<GameObject> tmpPool = new List<GameObject>();

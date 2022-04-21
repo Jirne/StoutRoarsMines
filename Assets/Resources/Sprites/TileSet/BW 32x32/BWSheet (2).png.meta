@@ -114,6 +114,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -832,6 +833,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      BWSheet (2)_14: 6906807376036835101
+      BWSheet (2)_17: -3187627155370983572
+      BWSheet (2)_25: -7486678182593125863
+      BWSheet (2)_10: -798733626512016008
+      BWSheet (2)_27: -504149812700173176
+      BWSheet (2)_23: -1038321757083903346
+      BWSheet (2)_29: 633883448021919559
+      BWSheet (2)_12: -2485380519207779079
+      BWSheet (2)_18: 7998214828920712985
+      BWSheet (2)_24: 2200385704804359228
+      BWSheet (2)_7: -2912519278574525565
+      BWSheet (2)_8: -4212629954627190994
+      BWSheet (2)_16: 5685364621236922112
+      BWSheet (2)_26: 5934819700338270014
+      BWSheet (2)_21: -8951111805463575990
+      BWSheet (2)_2: 3321001092111947709
+      BWSheet (2)_22: 8535552701188713117
+      BWSheet (2)_11: -9137182807139614227
+      BWSheet (2)_6: 181944271256548435
+      BWSheet (2)_0: 2825183431664815346
+      BWSheet (2)_13: -1982614037910898270
+      BWSheet (2)_20: 2588608899042006152
+      BWSheet (2)_1: 7662274410489644101
+      BWSheet (2)_9: 5785393554491534263
+      BWSheet (2)_4: -9120652533839383959
+      BWSheet (2)_3: -2539303496422754922
+      BWSheet (2)_19: -8655206654205022539
+      BWSheet (2)_28: 2928548431031170713
+      BWSheet (2)_15: -6465078798107904172
+      BWSheet (2)_5: 3500276394637667166
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
